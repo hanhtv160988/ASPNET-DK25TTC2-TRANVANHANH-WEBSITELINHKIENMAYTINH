@@ -1,5 +1,5 @@
 
-## Do An Tot Nghiep - He Thong Ban  Linh Kien May Tinh ^ điện tử
+## Do An Tot Nghiep - He Thong Ban  Linh Kien May Tinh & điện tử
 
 **Hoc vien:** Tran Van Hanh
 
