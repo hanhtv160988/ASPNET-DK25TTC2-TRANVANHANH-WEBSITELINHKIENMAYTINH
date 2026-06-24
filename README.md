@@ -2,7 +2,9 @@
 ## Do An Tot Nghiep - He Thong Ban Laptop & Linh Kien May Tinh
 
 **Hoc vien:** Tran Van Hanh
+
 **MSSV:** 170125153
+
 **Lop:** DK25TTC2
 
 ## 1. Công Nghệ Sử Dụng
