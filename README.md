@@ -1,5 +1,5 @@
 
-## Do An Tot Nghiep - He Thong Ban Laptop & Linh Kien May Tinh
+## Do An Tot Nghiep - He Thong Ban  Linh Kien May Tinh ^ điện tử
 
 **Hoc vien:** Tran Van Hanh
 
