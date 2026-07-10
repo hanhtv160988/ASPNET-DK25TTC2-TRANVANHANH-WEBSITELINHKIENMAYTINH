@@ -31,7 +31,7 @@ Authentication: Windows Authentication
 
 Chạy file SQL:
 ```
-\StoreComputer\StoreComputer_init.sql
+\StoreComputer\DropAndCreate_StoreComputer.sql
 ```
 (Nhấn F5 hoặc Execute)
 
@@ -171,7 +171,7 @@ StoreComputer/
 │   │   ├── Web.config        # Connection string
 │   │   └── bin/              # DLL (runtime config)
 │   └── StoreComputer.sln     # Solution file
-└── StoreComputer_init.sql     # Script khởi tạo database (CHỈ 1 FILE)
+└── DropAndCreate_StoreComputer.sql    
 ```
 
 ---
@@ -189,7 +189,7 @@ StoreComputer/
 
 ### Lỗi FK khi chạy SQL
 - **Nguyên nhân:** Thứ tự insert không đúng (insert vào bảng con trước)
-- **Sửa:** Dùng file `StoreComputer_init.sql` — đã sắp xếp đúng thứ tự
+- **Sửa:** Dùng file `DropAndCreate_StoreComputer.sql` — đã sắp xếp đúng thứ tự
 
 ### Lỗi "There is already an object named 'ChiTietDatHang' in the database"
 - **Nguyên nhân:** Chạy script SQL nhiều lần — bảng đã tồn tại từ lần chạy trước
@@ -207,11 +207,11 @@ StoreComputer/
   DROP TABLE IF EXISTS [dbo].[TaiKhoan];
   GO
   ```
-  Sau đó chạy lại `StoreComputer_init.sql`
+  Sau đó chạy lại `DropAndCreate_StoreComputer.sql`
 
 ### Lỗi "Invalid object name 'dbo.HangHoa'"
 - **Nguyên nhân:** Chưa chạy script SQL tạo bảng, hoặc chạy bị lỗi (dính lỗi "already exists" phía trên)
-- **Sửa:** Chạy lại file `StoreComputer_init.sql` trong SSMS (đã fix tự động DROP bảng cũ)
+- **Sửa:** Chạy lại file `DropAndCreate_StoreComputer.sql` trong SSMS (đã fix tự động DROP bảng cũ)
 - **Kiểm tra:** Sau khi chạy xong, chạy câu lệnh sau trong SSMS để xác nhận bảng đã tồn tại:
   ```sql
   USE [StoreComputer];
@@ -229,5 +229,5 @@ StoreComputer/
 ## 10. Nâng Cấp / Thay Đổi
 
 - **Đổi port SQL Server:** Sửa cả `Web.config` và `bin/StoreComputer.dll.config`
-- **Đổi data mẫu:** Sửa `StoreComputer_init.sql`, phần INSERT
+- **Đổi data mẫu:** Sửa `DropAndCreate_StoreComputer.sql`, phần INSERT
 - **Thêm trường sản phẩm:** Thêm trong SQL → Update EDMX trong Visual Studio
