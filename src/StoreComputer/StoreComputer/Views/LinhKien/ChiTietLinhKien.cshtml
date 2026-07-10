@@ -1,0 +1,112 @@
+@model StoreComputer.Models.HangHoa
+
+@{
+    ViewBag.Title = "G Computer";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+<style>
+    .product-price-wrap { margin: 10px 0; }
+    .product-price-old { color: #999; font-size: 16px; text-decoration: line-through; margin-right: 15px; }
+    .product-price-new { color: red; font-size: 22px; font-weight: bold; }
+    .product-discount { color: #ea1c00; font-size: 14px; font-weight: bold; margin-left: 10px; }
+</style>
+
+<section class="sec-product-detail bg0 p-t-65 p-b-60" style="margin-top:20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-7 p-b-30">
+                <div class="p-l-25 p-r-30 p-lr-0-lg">
+                    <div class="slick3">
+                        <div class="item-slick3">
+                            <div class="wrap-pic-w pos-relative">
+                                <img src="~/@Model.hinhAnh" alt="@Model.tenHang" style="width:100%;max-width:500px;height:auto;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-5 p-b-30">
+                <div class="p-r-50 p-t-5 p-lr-0-lg">
+                    <h2 class="mtext-105 cl2 js-name-detail" style="color:#333;margin-bottom:15px">
+                        @Model.tenHang
+                    </h2>
+
+                    <div class="product-price-wrap">
+                        <span class="product-price-old">@String.Format("{0:#,##0} đ", Model.giaCu)</span>
+                        @if (!string.IsNullOrEmpty(Model.giamGia))
+                        {
+                            <span class="product-discount">@Model.giamGia</span>
+                        }
+                    </div>
+                    <div class="product-price-new mb-3">@String.Format("{0:#,##0} đ", Model.giaMoi)</div>
+
+                    <p class="stext-102 cl3 p-t-23">
+                        @Html.Raw(Model.moTa)
+                    </p>
+
+                    <div class="d-flex align-items-center mt-3">
+                        <input type="number" value="1" min="1" style="width:65px;padding:5px;border:1px solid #ddd;" id="soLuong" />
+                        <input type="hidden" name="maSP" id="maSP" value="@Model.maHang" />
+                        <button type="button" onclick="add()" class="btn btn-primary ml-3" style="background:#1435c3;border:none;padding:10px 20px;color:#fff;">
+                            Thêm Vào Giỏ Hàng
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bor10 m-t-50 p-t-43 p-b-40">
+            <div class="tab01">
+                <ul class="nav nav-tabs" role="tablist" style="margin-top:1rem">
+                    <li class="nav-item p-b-10">
+                        <a class="nav-link active" data-toggle="tab" href="#description" role="tab">Mô tả sản phẩm</a>
+                    </li>
+                </ul>
+                <div class="tab-content p-t-43" style="margin-top:1rem">
+                    <div class="tab-pane fade show active" id="description" role="tabpanel">
+                        <div class="how-pos2 p-lr-15-md">
+                            @Html.Raw(@System.Net.WebUtility.HtmlDecode(Model.maTaChiTiet))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (ViewBag.sanPhamCungLoai != null && ViewBag.sanPhamCungLoai.Count > 0)
+{
+    <section class="health_section layout_padding">
+        <div class="health_carousel-container">
+            <h2 class="text-uppercase">Sản Phẩm Cùng Loại</h2>
+            <div class="carousel-wrap layout_padding2">
+                <div class="owl-carousel">
+                    @foreach (var item in (List<StoreComputer.Models.HangHoa>)ViewBag.sanPhamCungLoai)
+                    {
+                        <div class="item">
+                            <div class="box">
+                                <div class="img-box" style="overflow:hidden;cursor:pointer;">
+                                    <a href="~/LinhKien/ChiTietLinhKien/@item.maHang">
+                                        <img src="~/@item.hinhAnh" height="200px" alt="@item.tenHang" style="width:100%;object-fit:contain;">
+                                    </a>
+                                    <a href="~/LinhKien/ChiTietLinhKien/@item.maHang" class="order-now">Xem Thêm</a>
+                                </div>
+                                <div class="text" style="padding-top:10px;text-align:center;text-transform:uppercase;font-size:14px">
+                                    <h6 style="margin-bottom:5px">@item.tenHang</h6>
+                                </div>
+                                <div class="detail-box">
+                                    <div class="text">
+                                        <h6 class="price" style="color:#ea1c00;font-weight:bold;">
+                                            @String.Format("{0:#,##0} đ", item.giaMoi)
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}

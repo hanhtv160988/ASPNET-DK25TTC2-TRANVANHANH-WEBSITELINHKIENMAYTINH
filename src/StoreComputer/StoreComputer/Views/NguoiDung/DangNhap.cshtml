@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Đăng Nhập";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card shadow">
+                <div class="card-header text-center">
+                    <h4 class="mb-0">Đăng Nhập</h4>
+                </div>
+                <div class="card-body">
+                    @using (Html.BeginForm("DangNhap", "NguoiDung", FormMethod.Post))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            <label>Tài khoản</label>
+                            <input type="text" id="user" name="user" class="form-control" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Mật khẩu</label>
+                            <input type="password" id="password" name="password" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block" style="height:50px">Đăng nhập</button>
+                    }
+                    <hr />
+                    <div class="text-center">
+                        <a href="~/NguoiDung/dangKy" class="btn btn-outline-dark btn-block">Tạo tài khoản mới</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
