@@ -45,9 +45,8 @@ File này tự động:
 1. Mở **Visual Studio 2022**
 2. File → Open → Project/Solution
 3. Chọn file:
-   ```
   D:\StoreComputer\StoreComputer\StoreComputer.sln
-   ```
+
 
 ### Bước 3: Build & Run
 1. Nhấn `Ctrl + Shift + B` để Build
