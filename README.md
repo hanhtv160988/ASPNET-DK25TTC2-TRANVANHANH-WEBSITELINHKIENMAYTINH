@@ -46,7 +46,7 @@ File này tự động:
 2. File → Open → Project/Solution
 3. Chọn file:
    ```
-  \StoreComputer\StoreComputer\StoreComputer.sln
+  D:\StoreComputer\StoreComputer\StoreComputer.sln
    ```
 
 ### Bước 3: Build & Run
