@@ -33,7 +33,7 @@ Authentication: Windows Authentication
 
 Chạy file SQL:
 ```
-D:\tvu-Project\projectlkdt\StoreComputer\StoreComputer_init.sql
+\StoreComputer\StoreComputer_init.sql
 ```
 (Nhấn F5 hoặc Execute)
 
@@ -48,7 +48,7 @@ File này tự động:
 2. File → Open → Project/Solution
 3. Chọn file:
    ```
-   D:\tvu-Project\projectlkdt\StoreComputer\StoreComputer\StoreComputer.sln
+  \StoreComputer\StoreComputer\StoreComputer.sln
    ```
 
 ### Bước 3: Build & Run
